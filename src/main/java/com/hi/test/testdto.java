@@ -1,5 +1,4 @@
 package com.hi.test;
-
 import lombok.Data;
 
 @Data
