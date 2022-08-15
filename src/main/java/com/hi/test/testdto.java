@@ -1,7 +1,9 @@
 package com.hi.test;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
+@Getter
 public class testdto {
     private String s;
     private Long l;
