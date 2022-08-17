@@ -19,6 +19,8 @@ public class TestController {
 
         return new testdto("test", 777L);
     }
+
+    //파일 인자로 받고 한 줄 씩 읽어들여서(개행문자 기준) 끝까지 출력하는 프로그램
     @PostMapping("/hi")
     public String ttt(MultipartFile t) throws IOException {
         BufferedReader br=new BufferedReader(new InputStreamReader(t.getInputStream(),"UTF-8"));
@@ -29,4 +31,6 @@ public class TestController {
         br.close();
         return "";
     }
+
+    //TO-DO 쉼표 (,) 기준으로 나눠서 파싱하기
 }
