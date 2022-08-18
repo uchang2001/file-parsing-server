@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class TestController {
@@ -22,14 +24,19 @@ public class TestController {
 
     //파일 인자로 받고 한 줄 씩 읽어들여서(개행문자 기준) 끝까지 출력하는 프로그램
     @PostMapping("/hi")
-    public String ttt(MultipartFile t) throws IOException {
+    public List<testdto> ttt(MultipartFile t) throws IOException {
         BufferedReader br=new BufferedReader(new InputStreamReader(t.getInputStream(),"UTF-8"));
         String line=null;
+        List<testdto> testdtoList=new ArrayList<>();
         while((line=br.readLine())!=null){
             System.out.println(line);
+            String[] s=line.split(",");
+            testdto tmp=new testdto(s[0],Long.parseLong(s[1]));
+            testdtoList.add(tmp);
+
         }
         br.close();
-        return "";
+        return testdtoList;
     }
 
     //TO-DO 쉼표 (,) 기준으로 나눠서 파싱하기
