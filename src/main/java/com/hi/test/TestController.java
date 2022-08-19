@@ -36,8 +36,7 @@ public class TestController {
 
         }
         br.close();
+        System.out.println(testdtoList);
         return testdtoList;
     }
-
-    //TO-DO 쉼표 (,) 기준으로 나눠서 파싱하기
 }
