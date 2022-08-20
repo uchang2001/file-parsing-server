@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -17,26 +16,26 @@ public class TestController {
 
 
     @GetMapping("/hi")
-    public testdto testcon(){
+    public userDto testcon(){
 
-        return new testdto("test", 777L);
+        return new userDto("test", 777L);
     }
 
     //파일 인자로 받고 한 줄 씩 읽어들여서(개행문자 기준) 끝까지 출력하는 프로그램
     @PostMapping("/hi")
-    public List<testdto> ttt(MultipartFile t) throws IOException {
+    public List<userDto> ttt(MultipartFile t) throws IOException {
         BufferedReader br=new BufferedReader(new InputStreamReader(t.getInputStream(),"UTF-8"));
         String line=null;
-        List<testdto> testdtoList=new ArrayList<>();
+        List<userDto> userDtoList =new ArrayList<>();
         while((line=br.readLine())!=null){
             System.out.println(line);
             String[] s=line.split(",");
-            testdto tmp=new testdto(s[0],Long.parseLong(s[1]));
-            testdtoList.add(tmp);
+            userDto tmp=new userDto(s[0],Long.parseLong(s[1]));
+            userDtoList.add(tmp);
 
         }
         br.close();
-        System.out.println(testdtoList);
-        return testdtoList;
+        System.out.println(userDtoList);
+        return userDtoList;
     }
 }
