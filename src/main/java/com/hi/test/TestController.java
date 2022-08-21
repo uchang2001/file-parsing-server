@@ -22,9 +22,9 @@ public class TestController {
     }
 
     //파일 인자로 받고 한 줄 씩 읽어들여서(개행문자 기준) 끝까지 출력하는 프로그램
-    @PostMapping("/hi")
-    public List<userDto> ttt(MultipartFile t) throws IOException {
-        BufferedReader br=new BufferedReader(new InputStreamReader(t.getInputStream(),"UTF-8"));
+    @PostMapping("/read")
+    public List<userDto> readFile(MultipartFile test) throws IOException {
+        BufferedReader br=new BufferedReader(new InputStreamReader(test.getInputStream(),"UTF-8"));
         String line=null;
         List<userDto> userDtoList =new ArrayList<>();
         while((line=br.readLine())!=null){
@@ -32,7 +32,6 @@ public class TestController {
             String[] s=line.split(",");
             userDto tmp=new userDto(s[0],Long.parseLong(s[1]));
             userDtoList.add(tmp);
-
         }
         br.close();
         System.out.println(userDtoList);
