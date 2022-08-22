@@ -1,15 +1,18 @@
 package com.hi.test;
-import lombok.Data;
+
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
 @Getter
+@Setter
+@NoArgsConstructor
 public class userDto {
-    private String name;
     private Long age;
-
-    public userDto(String name, Long age){
-        this.name=name;
+    private String name;
+    public userDto(Long age,String name){
         this.age=age;
+        this.name=name;
     }
+
 }
