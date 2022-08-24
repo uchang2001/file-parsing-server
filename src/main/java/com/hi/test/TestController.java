@@ -36,14 +36,11 @@ public class TestController {
             System.out.println(line);
             String[] s=line.split(",");
             userDto tmp=new userDto(Long.parseLong(s[1]),s[0]);
-            System.out.println(tmp.getAge());
             User user=new User(tmp);
-            userRepository.save(user);
             userList.add(user);
         }
         br.close();
         System.out.println(userList);
-//        System.out.println(userRepository.findAll());
         return userList;
     }
 }
