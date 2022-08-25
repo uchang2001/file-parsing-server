@@ -19,12 +19,6 @@ public class TestController {
     private final UserRepository userRepository;
 
 
-//    @GetMapping("/hi")
-//    public User testcon(){
-//
-////        return new User("test", 777L);
-//    }
-
     //파일 인자로 받고 한 줄 씩 읽어들여서(개행문자 기준) 끝까지 출력하는 프로그램
     @PostMapping("/read")
     @Transactional
