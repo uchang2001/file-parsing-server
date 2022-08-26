@@ -22,6 +22,4 @@ public class User {
         this.username=dto.getName();
         this.ages=dto.getAge();
     }
-
-
 }
