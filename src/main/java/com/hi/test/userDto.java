@@ -12,7 +12,6 @@ public class userDto {
     private String name;
     public userDto(Long age,String name){
         this.age=age;
-
         this.name=name;
     }
 
